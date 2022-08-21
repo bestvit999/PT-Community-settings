@@ -1,0 +1,61 @@
+Contributed by Hoffer49
+###############################################
+In INDICATORS config:
+###############################################
+1h_MACDSL_candle_period = 3600
+1h_MACDSL_fast_Length = 12
+1h_MACDSL_slow_Length = 26
+1h_MACDSL_signal = 9
+1h_MACDSL_return_value = SIGNALLINE
+
+1h_MACDL_candle_period = 3600
+1h_MACDL_fast_Length = 12
+1h_MACDL_slow_Length = 26
+1h_MACDL_signal = 9
+1h_MACDL_return_value = MACDLINE
+
+1h_MACDL_SL_CROSS_fast_indicator_label = 1h_MACDL
+1h_MACDL_SL_CROSS_fast_indicator = MACD
+1h_MACDL_SL_CROSS_slow_indicator_label = 1h_MACDSL
+1h_MACDL_SL_CROSS_slow_indicator = MACD
+
+1h_MACDL_CROSS_fast_indicator_label = 1h_MACDL
+1h_MACDL_CROSS_fast_indicator = MACD
+
+1h_MACSL_CROSS_fast_indicator_label = 1h_MACSL
+1h_MACSL_CROSS_fast_indicator = MACD
+
+#############################################
+In PAIRS config you would put something like this:
+#############################################
+### BUY ON CROSS 
+
+#When MACD line crosses ABOVE 0
+DEFAULT_A_buy_strategy_label = 1h_MACDL_CROSS
+DEFAULT_A_buy_strategy = CROSSOVER
+DEFAULT_A_buy_value = 0
+
+#When SIGNAL line crosses ABOVE 0
+DEFAULT_B_buy_strategy_label = 1h_MACDSL_CROSS
+DEFAULT_B_buy_strategy = CROSSOVER
+DEFAULT_B_buy_value = 0
+
+#When MACD line crosses ABOVE the SIGNAL line
+DEFAULT_C_buy_strategy_label = 1h_MACDL_SL_CROSS
+DEFAULT_C_buy_strategy = CROSSOVER
+
+### SELL ON CROSS 
+
+#When MACD line crosses BELOW 0
+DEFAULT_A_sell_strategy_label = 1h_MACDL_CROSS
+DEFAULT_A_sell_strategy = CROSSUNDER
+DEFAULT_A_sell_value = 0
+
+#When SIGNAL line crosses BELOW 0
+DEFAULT_B_sell_strategy_label = 1h_MACDSL_CROSS
+DEFAULT_B_sell_strategy = CROSSUNDER
+DEFAULT_B_sell_value = 0
+
+#When MACD line crosses BELOW the SIGNAL line
+DEFAULT_C_sell_strategy_label = 1h_MACDL_SL_CROSS
+DEFAULT_C_sell_strategy = CROSSUNDER
